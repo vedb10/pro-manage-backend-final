@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://pro-manage-frontend-eight.vercel.app"
+          "value": "https://pro-manage-frontend-final.vercel.app/"
         },
         {
           "key": "Access-Control-Allow-Methods",
