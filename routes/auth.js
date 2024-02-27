@@ -11,6 +11,7 @@ const corsOptions = {
   credentials: false,
 };
 router.use(cors(corsOptions));
+router.options("/login", cors(corsOptions))
 
 router.post("/register",async (req,res)=>{
     try {
