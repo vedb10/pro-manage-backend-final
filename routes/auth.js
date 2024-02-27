@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken')
 const jwtVerify = require('../Middleware/authMiddleware')
 const cors = require('cors')
 
+router.use(cors())
+
 const corsOptions = {
   origin: "*",
   methods: ["POST","GET"],
