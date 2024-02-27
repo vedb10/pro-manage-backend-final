@@ -1,15 +1,22 @@
 {
-    "version": 2,
-    "builds": [
+  "version": 2,
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
         {
-            "src": "*.js",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://pro-manage-frontend-eight.vercel.app"
+        },
         {
-            "src": "/(.*)",
-            "dest": "/"
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
         }
-    ]
+      ]
+    }
+  ]
 }
