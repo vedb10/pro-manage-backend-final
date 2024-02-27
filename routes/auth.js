@@ -5,6 +5,13 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const jwtVerify = require('../Middleware/authMiddleware')
 
+const corsOptions = {
+  origin: "*",
+  methods: ["POST","GET"],
+  credentials: false,
+};
+router.use(cors(corsOptions));
+
 router.post("/register",async (req,res)=>{
     try {
         const {name, email, password, confirmPassword} = req.body;
