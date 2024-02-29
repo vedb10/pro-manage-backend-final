@@ -116,9 +116,7 @@ router.post("/updatepass",async (req, res)=>{
                 });
             }
 
-            // Continue with your password update logic...
-            // Make sure to properly hash the new password and update the user
-            // Example: savedData.password = await hashNewPassword(newPassword);
+           
 
             await savedData.save();
 
