@@ -10,7 +10,7 @@ const taskSchema = mongoose.Schema({
         type:String,
         required:true
     }
-    // Add other properties of a task as needed
+   
 });
 
 const cardData = mongoose.Schema({
