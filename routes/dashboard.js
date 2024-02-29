@@ -10,7 +10,7 @@ const moment = require('moment');
 
 router.get("/getname", async (req, res) => {
   try {
-    const token = req.headers.authorization.split(" ")[1]; // Extract token from headers
+    const token = req.headers.authorization.split(" ")[1]; 
     const decode = await jwt.verify(token, process.env.JWT_TOKEN);
 
     if (decode.userId) {
@@ -65,13 +65,13 @@ router.get('/getallcards', async (req, res) => {
   try {
     const { email } = req.query;
 
-    // Use email to query CardData collection
+    
     const data = await CardData.find({ email: email });
 
-    // Send the data as JSON response
+    
     return res.status(200).json({ data });
   } catch (error) {
-    // Handle any errors that occur during the query
+   
     console.error(error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
@@ -83,28 +83,28 @@ router.get('/getcards', async (req, res) => {
     const { email, filterBy } = req.query;
     let filterCondition = {};
 
-    // Determine the filter condition based on the provided 'filterBy' parameter
+    
     if (filterBy === 'week') {
-      // Filter data for the current week
+    
       filterCondition.logdate = { $gte: moment().startOf('week'), $lte: moment().endOf('week') };
     } else if (filterBy === 'month') {
-      // Filter data for the current month
+     
       filterCondition.logdate = { $gte: moment().startOf('month'), $lte: moment().endOf('month') };
     } else if (filterBy === 'today') {
-      // Filter data for today
+    
       filterCondition.logdate = {
         $gte: moment().startOf('day'),
         $lte: moment().endOf('day')
       };
     }
 
-    // Use email and filterCondition to query CardData collection
+   
     const data = await CardData.find({ email: email, ...filterCondition });
 
-    // Send the filtered data as JSON response
+   
     return res.status(200).json({ data });
   } catch (error) {
-    // Handle any errors that occur during the query
+   
     console.error(error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
@@ -175,7 +175,7 @@ router.put('/checkboxupdate', async (req, res) => {
     console.log('Task ID:', taskId);
     console.log('Status:', status);
 
-    // Log existing data
+ 
     const existingTask = await CardData.findOne({ 'tasks._id': taskId, 'tasks.completed': true });
     console.log('Existing Task:', existingTask);
 
